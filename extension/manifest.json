@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "CLGEN - AI Cover Letter Generator",
+  "version": "1.0.0",
+  "description": "Generate tailored cover letters using AI based on your resume and job descriptions",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "contextMenus"
+  ],
+  "host_permissions": [
+    "http://localhost:5001/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "CLGEN - Generate Cover Letter",
+    "default_icon": "icons/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  }
+} 
